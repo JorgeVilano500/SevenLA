@@ -9,9 +9,9 @@ import * as AiIcons from 'react-icons/ai';
 import '../../css/SidNav.css'
 
 interface ColorProps {
-    color: string, 
-    onChangeHandler: (e: React.FormEvent<HTMLInputElement>) => void
-    styleObj: {}
+    color: string | null | undefined, 
+    onChangeHandler: (e: React.FormEvent<HTMLButtonElement>) => void
+    styleObj: {} | Properties<string | number, string & {}>
 }
 
 const pages = [
@@ -41,7 +41,7 @@ export function NavbarPage({color, onChangeHandler, styleObj}: ColorProps) {
 
 
     return(
-        <Navbar style={{height: '5rem', width: '100rem'}} bg='dark' variant='dark' expand='lg' >
+        <Navbar style={{height: '5rem', width: '100%'}} bg='dark' variant='dark' expand='lg' >
             <Container>
                 <Navbar.Brand onClick={showSidebar}>{<TfiAlignJustify />}</Navbar.Brand>
                 <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -63,12 +63,12 @@ export function NavbarPage({color, onChangeHandler, styleObj}: ColorProps) {
                     </li>
                     <li>
                         <div className='themes'>
-                            <button className='btn btn-1'></button>
-                            <button className='btn btn-2'></button>
-                            <button className='btn btn-3'></button>
-                            <button className='btn btn-4'></button>
-                            <button className='btn btn-5'></button>
-                            <button className='btn btn-6'></button>
+                            <button onChange={e => {onChangeHandler(e)}} value='#fff' className='btn btn-1'></button>
+                            {/* <button className='btn btn-2'></button> */}
+                            {/* <button className='btn btn-3'></button> */}
+                            {/* <button className='btn btn-4'></button> */}
+                            {/* <button className='btn btn-5'></button> */}
+                            {/* <button className='btn btn-6'></button> */}
 
                         </div>
                     </li>
